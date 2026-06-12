@@ -53,12 +53,11 @@ export default function Home() {
         />
       )}
 
-      {/* Mobile sidebar panel — visible only on small screens */}
+      {/* Mobile sidebar panel — rendered only when open */}
       {mobileMenuOpen && (
         <div
           className="menu menu-mobile-panel"
           style={{
-            display: "none",
             position: "fixed",
             top: 0, left: 0, right: 0, bottom: 0,
             background: "#fff",

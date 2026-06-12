@@ -38,7 +38,7 @@ export default function Home() {
         ☰ {MENU_ITEMS[activeMenuIndex]?.name || "菜单"}
       </button>
 
-      {/* Overlay for mobile sidebar */}
+      {/* Mobile sidebar overlay */}
       {mobileMenuOpen && (
         <div
           onClick={() => setMobileMenuOpen(false)}
@@ -51,6 +51,79 @@ export default function Home() {
           }}
           className="mobile-overlay"
         />
+      )}
+
+      {/* Mobile sidebar panel — visible only on small screens */}
+      {mobileMenuOpen && (
+        <div
+          className="menu menu-mobile-panel"
+          style={{
+            display: "none",
+            position: "fixed",
+            top: 0, left: 0, right: 0, bottom: 0,
+            background: "#fff",
+            zIndex: 50,
+            flexDirection: "column",
+            alignItems: "stretch",
+            padding: "56px 0 16px 0",
+            overflowY: "auto",
+          }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <button
+            onClick={() => setMobileMenuOpen(false)}
+            style={{
+              position: "absolute",
+              top: 12, right: 12,
+              width: 36, height: 36,
+              border: "none",
+              borderRadius: 6,
+              background: "#f0f0f0",
+              color: "#333",
+              fontSize: 20,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              zIndex: 51,
+            }}
+          >
+            ✕
+          </button>
+          <div className="menu-wrap" style={{ overflow: "hidden", position: "relative", marginBottom: 0 }}>
+            <div className="menu-nav" style={{ position: "relative", transition: "transform .3s", zIndex: 2, display: "flex", flexDirection: "column" }}>
+              {MENU_ITEMS.map((item, index) => (
+                <div
+                  key={item.id}
+                  id={item.id}
+                  className={`menu-item${index === activeMenuIndex ? " menu-active" : ""}`}
+                  onClick={() => {
+                    setActiveMenuIndex(index);
+                    setMobileMenuOpen(false);
+                  }}
+                  style={{
+                    padding: "0 20px",
+                    height: "44px",
+                    boxSizing: "border-box",
+                    lineHeight: "44px",
+                    display: "block",
+                    listStyle: "none",
+                    fontSize: "15px",
+                    fontWeight: 500,
+                    color: index === activeMenuIndex ? "#409eff" : "#303133",
+                    position: "relative",
+                    cursor: "pointer",
+                    marginBottom: 0,
+                    borderBottom: "1px solid #f0f0f0",
+                    WebkitTapHighlightColor: "transparent",
+                  }}
+                >
+                  <span>{item.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
       )}
 
       {/* Header */}

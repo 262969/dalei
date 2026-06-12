@@ -143,11 +143,6 @@ export default function SoftwareAccordion({ panelIndex = 1 }: { panelIndex?: num
     <div className="down" style={{ overflow: "hidden", position: "relative", marginLeft: "10px", paddingLeft: "10px", borderLeft: "1px solid #ebeef5" }}>
       <div className="down-wrap" style={{ padding: "0 20px" }}>
         <div className="down-box" style={{ border: 0, paddingBottom: "8px" }}>
-          {/* Info banner */}
-          <div className="down-pan" style={{ textAlign: "center", background: "#333", borderRadius: "5px", padding: "10px", marginBottom: "5px", fontSize: "13px", fontWeight: "bold", color: "#f8ff00" }}>
-            私人调试站点 — 所有网盘链接仅供个人学习使用
-          </div>
-
           {/* Software categories */}
           {panel.categories.map((cat, catIndex) => {
             const isOpen = openItems.has(catIndex);
@@ -155,6 +150,14 @@ export default function SoftwareAccordion({ panelIndex = 1 }: { panelIndex?: num
               <div key={catIndex} className="down-item" style={{ borderBottom: "1px solid #ebeef5", paddingBottom: "8px" }}>
                 <a
                   className="down-head"
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      toggleItem(catIndex);
+                    }
+                  }}
                   onClick={() => toggleItem(catIndex)}
                   style={{
                     display: "flex",

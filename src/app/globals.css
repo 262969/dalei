@@ -87,6 +87,7 @@ body {
     margin: 12px 4px !important;
   }
 
+  /* Desktop sidebar hidden on mobile */
   .menu {
     display: none !important;
   }
@@ -112,6 +113,59 @@ body {
 @media (min-width: 769px) {
   .container {
     width: 1000px;
+  }
+}
+
+/* Mobile sidebar panel */
+@media (max-width: 768px) {
+  .menu-mobile-panel {
+    display: none !important;
+  }
+
+  .mobile-sidebar-open .menu-mobile-panel {
+    display: flex !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    z-index: 50 !important;
+    background: #fff !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 56px 0 16px 0 !important;
+    overflow-y: auto !important;
+  }
+
+  .mobile-sidebar-close {
+    position: absolute !important;
+    top: 12px !important;
+    right: 12px !important;
+    width: 36px !important;
+    height: 36px !important;
+    border: none !important;
+    border-radius: 6px !important;
+    background: #f0f0f0 !important;
+    color: #333 !important;
+    font-size: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    cursor: pointer !important;
+    z-index: 51 !important;
+  }
+
+  .mobile-sidebar-nav {
+    flex: 1 !important;
+    overflow-y: auto !important;
+  }
+
+  .mobile-sidebar-nav .menu-item {
+    padding: 0 20px !important;
+    height: 44px !important;
+    line-height: 44px !important;
+    font-size: 15px !important;
+    border-bottom: 1px solid #f0f0f0 !important;
   }
 }
 

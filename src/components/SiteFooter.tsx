@@ -7,7 +7,7 @@ export default function SiteFooter() {
         Copyright &copy; 2025 Software Hub Demo — Built with Next.js for educational purposes
       </span>
       <div style={{ textAlign: "center", marginTop: "8px", fontSize: "12px", color: "#999" }}>
-        <span>This is a demo site. No real downloads are provided.</span>
+        <span>© 2025 Software Hub — Educational Project</span>
       </div>
     </div>
   );

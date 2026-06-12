@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+:root {
+  --background: #1c1c1c;
+  --foreground: #f5f5f5;
+  --primary: #409eff;
+  --primary-light: #ecf5ff;
+  --text-primary: #303133;
+  --text-secondary: #707073;
+  --text-muted: #939393;
+  --text-light-muted: #b3b3b3;
+  --border-color: #dcdfe6;
+  --border-light: #ebeef5;
+  --border-section: #e4e7ed;
+  --yellow-accent: #f4ff00;
+  --yellow-light: #f8ff00;
+  --red: #e5000a;
+  --cyan: #03ffff;
+  --pink: #ff58cc;
+  --green: #028737;
+  --card-bg: #ffffff;
+  --bg-dark: #1c1c1c;
+  --footer-yellow: #f8ff00;
+}
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Reset and base styles matching original site */
+* {
+  font-family: -apple-system, "HarmonyOS Regular", "HarmonyOS Medium", BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  box-sizing: border-box;
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+}
+
+a, a:hover {
+  text-decoration: none;
+}
+
+li, ol, ul {
+  list-style: none;
+}
+
+img {
+  border: 0;
+  display: block;
+}
+
+html {
+  background: #1c1c1c;
+  color: #333;
+  height: 100%;
+}
+
+body {
+  background: #1c1c1c;
+  color: #333;
+  height: 100%;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar matching original */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* Flex utilities */
+.flex-y {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Transition defaults */
+.transition-fast {
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.transition-smooth {
+  transition: all 0.3s;
+}
